@@ -19,7 +19,8 @@
 
 /// Money matters.
 pub mod currency {
-	pub type Balance = u128;
+	use node_primitives::Balance;
+	//pub type Balance = u128;
 	pub const MILLICENTS: Balance = 1_000_000;
 	pub const CENTS: Balance = 1_000 * MILLICENTS; // assume this is worth about a cent.
 	pub const DOLLARS: Balance = 100 * CENTS;
@@ -31,10 +32,11 @@ pub mod currency {
 
 /// Time.
 pub mod time {
+	use node_primitives::{BlockNumber, Moment};
 	/// An instant or duration in time.
-	pub type Moment = u64;
+	//pub type Moment = u64;
 	/// An index to a block.
-	pub type BlockNumber = u32;
+	//pub type BlockNumber = u32;
 
 	/// Since BABE is probabilistic this is the average expected block time that
 	/// we are targeting. Blocks will be produced at a minimum duration defined
@@ -65,7 +67,7 @@ pub mod time {
 
 	// NOTE: Currently it is not possible to change the epoch duration after the chain has started.
 	//       Attempting to do so will brick block production.
-	pub const EPOCH_DURATION_IN_BLOCKS: BlockNumber = 5 * MINUTES;
+	pub const EPOCH_DURATION_IN_BLOCKS: BlockNumber = 20 * MINUTES;
 	pub const EPOCH_DURATION_IN_SLOTS: u64 = {
 		const SLOT_FILL_RATE: f64 = MILLISECS_PER_BLOCK as f64 / SLOT_DURATION as f64;
 
