@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 # This script is meant to be run on Unix/Linux based systems
+# not on Windows 
+
 set -e
 
 echo "*** Initializing WASM build environment"
